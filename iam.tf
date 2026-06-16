@@ -7,7 +7,7 @@ resource "aws_iam_group" "this" {
 resource "aws_iam_policy" "this" {
   name        = "${var.project_id}-iam-policy"
   description = "Custom IAM policy for S3 bucket write access"
-  policy      = templatefile("${path.module}/policy.json", {
+  policy = templatefile("${path.module}/policy.json", {
     bucket_name = var.s3_bucket_name
   })
   tags = {
